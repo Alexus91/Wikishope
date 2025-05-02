@@ -1,0 +1,55 @@
+<div class="navbar-area">
+    <div class="mobile-nav">
+        <a routerLink="/home-two" class="logo"><img src="assets/img/footer-logo.png" alt="Logo"></a>
+    </div>
+
+    <div class="main-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light ">
+                <a class="navbar-brand" routerLink="/home-two"><img src="assets/img/logo.png" alt="Logo"></a>
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto ">
+
+                        <li class="nav-item mx-2">
+                            <a href="javascript:void(0)" class="nav-link">Services </a>
+                        </li>
+                       
+
+
+
+                        <li class="nav-item mx-2">
+                            <a href="javascript:void(0)" class="nav-link">products </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a routerLink="/product" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">products</a></li>
+
+                                <li class="nav-item"><a routerLink="/product-details" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">products details</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item mx-2">
+                            <a  routerLink="/blog" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Blog </a>
+
+
+                        </li>
+
+                    </ul>
+
+                    <div class="cart-area mx-1">
+                        <a routerLink="/sign-in">
+                            <span>Login</span>
+                        </a>
+                    </div>
+                    <div class="test mx-3">
+                        <a routerLink="/sign-up">
+                            <span>Create A New Account?
+                            </span>
+                        </a>
+                    </div>
+
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

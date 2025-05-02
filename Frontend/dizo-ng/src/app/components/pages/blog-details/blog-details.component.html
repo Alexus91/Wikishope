@@ -1,0 +1,52 @@
+<app-navbar-style-one></app-navbar-style-one>
+
+<div class="inner-banner inner-bg3">
+  <div class="container">
+    <div class="inner-title inner-title-padding" style="padding: 10px;">
+      <h3>Blog Details</h3>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><i class='bx bxs-chevrons-right'></i></li>
+        <li>Blog Details</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="blog-dtls pt-100 ">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog-dtls-content">
+          <div class="blog-dtls-img">
+            <img [src]="blog?.imageUrlblog" alt="Blog Image" 
+                 class="img-fluid" style="width: 100%; height: auto;">
+          </div>
+
+          <div class="blog-text">
+            <div class="article-content">
+              <ul class="entry-meta">
+                <li><i class="bx bxs-user"></i> {{ blog?.author }}</li>
+                <li><i class="bx bx-calendar"></i> {{ blog?.date | date }}</li>
+              </ul>
+            </div>
+            <!-- Render the blog content (converted from Markdown to HTML) -->
+            <div class="blog-content" [style.minHeight.px]="300">
+              <ng-container *ngIf="blog; else loading">
+                <div [innerHTML]="getSanitizedContent(blog?.content || '')"></div>
+              </ng-container>
+              <ng-template #loading>
+                <div class="skeleton-loader"></div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add a sidebar or other content here if needed -->
+      <div class="col-lg-4">
+        <!-- Example placeholder for sidebar content -->
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-style-two></app-footer-style-two>

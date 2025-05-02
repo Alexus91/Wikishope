@@ -1,0 +1,64 @@
+<app-navbar-style-one></app-navbar-style-one>
+
+<div class="inner-banner inner-bg4">
+    <div class="container">
+        <div class="inner-title" style="padding: 10px;">
+            <h3>Blog</h3>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li><i class='bx bxs-chevrons-right'></i></li>
+                <li>Blog</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="blog-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <span>Blogs</span>
+            <h2>Our Regular Blog Post</h2>
+            <p>What indication best sick be project proposal in attempt, train of the showed 
+                some a forth. That homeless, won't many of goals thoughts volumes felt.</p>
+        </div>
+
+        <div class="row pt-45">
+            <div class="col-lg-4 col-md-6" *ngFor="let blog of blogs">
+                <div class="blog-card">
+                    <a [routerLink]="['/blog-details', blog.id]">
+                        <img [src]="blog.imageUrlblog" alt="Blog">
+                    </a>
+                    <div class="blog-content">
+                        <a [routerLink]="['/blog-details', blog.id]"><h3>{{ blog.title }}</h3></a>
+                        <ul class="blog-admin">
+                            <li><a routerLink="/"><i class='bx bxs-user'></i> {{ blog.author }}</a></li>
+                            <li><i class='bx bx-calendar-alt'></i> {{ blog.date | date }}</li>
+                        </ul>
+                        <p class="truncate-text">{{ blog.content }}</p>
+                        <a [routerLink]="['/blog-details', blog.id]" class="read-more-btn">Read More <i class='bx bxs-chevrons-right'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="pagination-area">
+                <nav aria-label="Page navigation example text-center">
+                    <ul class="pagination">
+                        <li class="page-item" *ngFor="let pageNum of pagesArray">
+                            <a class="page-link" [ngClass]="{'active': page === pageNum}" (click)="pageChange(pageNum)">{{ pageNum }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer-style-two></app-footer-style-two>
+
+
+
+
+
+
