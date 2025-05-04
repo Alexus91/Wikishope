@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 
 
-button {
+.delete {
     margin-right:10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -9,13 +9,47 @@ button {
     font-size: 14px;
     font-weight: 500;
     color: #fff;
-    background-color: #007bff;
+    background-color: #c21f2f;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     &:hover {
-        background-color: #0056b3;
+        background-color: #970b19;
+    }
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    }
+    &:active {
+        background-color: #970b19;
+    }
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+    &:first-child {
+        margin-left: 10px;
+    }
+  }
+  button {
+    margin-right:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1F467A;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #042c57;
     }
     &:disabled {
         background-color: #ccc;
@@ -64,5 +98,4 @@ button {
     ::ng-deep .mat-dialog-container {
         box-shadow: 0 4px 12px rgb(228, 6, 6) !important;
         border-radius: 8px;
-      }
- 
+    }

@@ -4,6 +4,7 @@ import { BlogService } from 'src/app/services/blogService';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { BlogEditDialogComponent } from '../blog-edit-dialog/blog-edit-dialog.component';
 
 @Component({
   selector: 'app-blog-management',
@@ -76,6 +77,20 @@ onSubmit(): void {
   } else {
     this.createBlog();
   }
+}
+startEdit(blog: Blog): void {
+  const dialogRef = this.dialog.open(BlogEditDialogComponent, {
+    width: '600px',
+    data: { ...blog }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.blogService.updateBlog(+result.id, result).subscribe(() => {
+        this.loadBlogs();
+      });
+    }
+  });
 }
 
   // Save Blog to Backend

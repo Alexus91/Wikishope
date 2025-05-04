@@ -33,12 +33,14 @@ import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import { ConfirmDialogComponent } from './components/common/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BlogEditDialogComponent } from './components/admin/blog-edit-dialog/blog-edit-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
+    BlogEditDialogComponent,
     
     AppComponent,
     PreloaderComponent,

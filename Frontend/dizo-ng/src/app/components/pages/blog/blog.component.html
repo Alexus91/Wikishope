@@ -16,10 +16,8 @@
 <div class="blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title text-center">
-            <span>Blogs</span>
             <h2>Our Regular Blog Post</h2>
-            <p>What indication best sick be project proposal in attempt, train of the showed 
-                some a forth. That homeless, won't many of goals thoughts volumes felt.</p>
+            <p>Explore our regular blog posts for product highlights.</p>
         </div>
 
         <div class="row pt-45">
@@ -34,7 +32,9 @@
                             <li><a routerLink="/"><i class='bx bxs-user'></i> {{ blog.author }}</a></li>
                             <li><i class='bx bx-calendar-alt'></i> {{ blog.date | date }}</li>
                         </ul>
-                        <p class="truncate-text">{{ blog.content }}</p>
+                        <p class="truncate-text" [innerHTML]="getSanitizedContent(blog.content.toString().slice(0, 1000) + '...')"></p>
+
+
                         <a [routerLink]="['/blog-details', blog.id]" class="read-more-btn">Read More <i class='bx bxs-chevrons-right'></i></a>
                     </div>
                 </div>

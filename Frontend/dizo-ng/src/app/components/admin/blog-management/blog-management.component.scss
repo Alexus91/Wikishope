@@ -1,3 +1,88 @@
-button {
-    margin-right: 8px;
+.create {
+  margin-right:10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 6px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1F467A;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+      background-color: #042c57;
   }
+  &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+  }
+  &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+  }
+  &:active {
+      background-color: #004085;
+  }
+  &:not(:last-child) {
+      margin-right: 10px;
+  }
+  &:first-child {
+      margin-left: 10px;
+  }
+}
+.delete{
+  margin-right:10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #c21f2f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+      background-color: #970b19;
+  }
+
+
+}
+.edit{
+  margin-right:10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1F467A;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+      background-color: #042c57;
+  }
+
+}
+
+.page{
+  margin-right:5px;
+  
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1F467A;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+      background-color: #042c57;
+  }
+}

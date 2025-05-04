@@ -3,7 +3,7 @@
 
 <div class="container">
   <!-- 🟢 MAIN BLOG TITLE -->
-  <h2>Create New Blog Post</h2>
+  <h4>Create New Blog Post</h4>
   
   <form (ngSubmit)="onSubmit()">
     <!-- 🟢 BLOG TITLE INPUT -->
@@ -32,13 +32,15 @@
     </div>
 
     <!-- 🟢 SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-primary">Create Blog</button>
+    <button class="create" type="submit">Create Blog</button>
   </form>
 
   <!-- 🟢 EXISTING BLOG POSTS SECTION -->
-<h2 class="mt-5">Existing Blog Posts</h2>
-<div class="row">
-  <div class="col-lg-4 col-md-6" *ngFor="let blog of blogs">
+<h4 class="mt-6" >Existing Blog Posts</h4>
+
+
+<div class="row" >
+  <div class="col-lg-3 col-md-pull-7" *ngFor="let blog of blogs">
     <div class="blog-card">
       <!-- 🟢 BLOG IMAGE -->
       <a [routerLink]="['/blog-details', blog.id]">
@@ -70,19 +72,22 @@
           Read More <i class="bi bi-arrow-right-circle"></i>
         </a>
 
+                  <!-- 🟢 update BUTTON -->
+        <button class="edit" color="warn" (click)="startEdit(blog)">
+          <i class="bi bi-pencil"></i> Edit
+        </button>
+
         <!-- 🟢 DELETE BUTTON -->
-        <button mat-raised-button color="warn" (click)="openDeleteDialog(blog.id, '300ms', '200ms')">
+        <button mat-raised-button class="delete" color="warn" (click)="openDeleteDialog(blog.id, '300ms', '200ms')">
           <i class="bi bi-trash"></i> Delete
         </button>
 
-                <!-- 🟢 update BUTTON -->
-        <button (click)="updateBlog(blog.id)" class="btn btn-warning btn-sm">
-          <i class="bi bi-pencil"></i> Edit
-        </button>
+      
       </div>
     </div>
   </div>
 </div>
+
 
 
   <!-- 🟢 PAGINATION -->

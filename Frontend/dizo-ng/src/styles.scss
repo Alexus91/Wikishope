@@ -1438,6 +1438,8 @@ Blog Area CSS
 ====================================*/
 .blog-card {
     margin-bottom: 30px;
+    margin-top: 30px;
+
     background-color: $color-white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -3043,6 +3045,9 @@ Pagination Area Style
     margin-right: auto;
     margin-left: auto;
     display: table;
+    padding:40px;
+    border-radius: 100%;
+
 
     .pagination-item {
         margin-bottom: 30px;
@@ -3050,14 +3055,18 @@ Pagination Area Style
     .page-link {
         color: $main-color;
         background-color: $color-white;
-        box-shadow: 0 0 15px #d0d0d0;
+        box-shadow: 15px #777575;
         width: 40px;
         height: 40px;
-        border: 1px solid $color-white;
-        line-height: 24px;
+        border: 1px solid #0f2c52;
+        line-height: 28px;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
         font-weight: 700;
+        border-radius: 100%;
+        cursor: pointer;
+
+
 
         i {
             margin-right: -4px;
@@ -3071,28 +3080,37 @@ Pagination Area Style
             color: $color-white;
             background-color: $main-color;
             border: 1px solid $main-color;
+            border-radius: 100%;
         }
     }
     .page-item {
-        padding: 0 8px 0;
-
+        padding : 6px;
         &:first-child .page-link {
-            border-radius: none;
+            border-radius: 100%;
+            text-align: center;
+
+            padding:6px;
+            
         }
         &:last-child .page-link {
-            border-radius: none;
+            border-radius: 100%;
+            text-align: center;
+
+            padding:6px;
+
         }
         &.current .page-link {
             z-index: 1;
             color: $color-white;
             background-color: $main-color;
             border-color: $main-color;
+            padding:6px;
         }
         
     }
     .pagination .page-link.active {
-        background-color: #007bff;
-        color: white;
+        background-color: #1F467A;
+        color: rgb(255, 255, 255);
         border-color: #007bff;
     }
 }

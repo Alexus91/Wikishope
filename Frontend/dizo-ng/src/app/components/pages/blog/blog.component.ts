@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Blog } from 'src/app/models/blog';
 import { BlogService } from 'src/app/services/blogService';
 
@@ -13,12 +13,10 @@ export class BlogComponent implements OnInit {
   page: number = 1;
   totalPages: number;
   pagesArray: number[] = [];    
-  private readonly sanitizer: DomSanitizer;
 
   
 
-  constructor(private blogService: BlogService) { }
-
+  constructor(private blogService: BlogService,private sanitizer: DomSanitizer) { }
   ngOnInit(): void {
     this.loadBlogs();
   }
@@ -42,10 +40,9 @@ export class BlogComponent implements OnInit {
   scrollToTop(): void {
     window.scrollTo(0, 0);
   }
-  getSanitizedContent(content: string): string {
-    // Convert markdown to HTML using marked.
-    const html = this.sanitizer.bypassSecurityTrustHtml(content);
-    return html as string;
-  }
+  
+  getSanitizedContent(content: string): SafeHtml {
+      return this.sanitizer.bypassSecurityTrustHtml(content);
+    }
   
 }
