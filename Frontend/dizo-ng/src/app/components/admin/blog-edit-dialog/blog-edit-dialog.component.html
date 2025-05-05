@@ -1,23 +1,28 @@
-<h4>Edit Blog Post</h4>
-<form (ngSubmit)="save()">
-  <div class="form-group">
-    <label for="title">Title (Main Blog Title)</label>
-    <input type="text" id="title" [(ngModel)]="data.title" name="editTitle" class="form-control" required>
-  </div>
+<div class="edit-card">
 
-  <div class="form-group">
-    <label for="content">Content (Add Text, Images, and Subtitles Inside the Blog)</label>
-    <quill-editor [(ngModel)]="data.content" [modules]="editorModules" name="editContent" class="form-control"></quill-editor>
-    <small class="text-muted">You can use <b>H2, H3, and bold</b> inside the content to create subtitles.</small>
-  </div>
+    <h5>Edit Blog Post</h5>
+    <form (ngSubmit)="save()">
+      <div class="form-group">
+        <label for="title">Title (Main Blog Title)</label>
+        <input type="text" id="title" [(ngModel)]="data.title" name="editTitle" class="form-control" required>
+      </div>
 
-  <div class="form-group">
-    <label for="author">Author (Blog Writer Name)</label>
-    <input type="text" id="author" [(ngModel)]="data.author" name="editAuthor" class="form-control" required>
-  </div>
+      <div class="form-group">
+        <label for="content">Content (Add Text, Images, and Subtitles Inside the Blog)</label>
+        <quill-editor [(ngModel)]="data.content" [modules]="editorModules" name="editContent" class="form-control"></quill-editor>
+        <small class="text-muted">You can use <b>H2, H3, and bold</b> inside the content to create subtitles.</small>
+      </div>
+
+      <div class="form-group" >
+        <label for="author">Author (Blog Writer Name)</label>
+        <input type="text" id="author" [(ngModel)]="data.author" name="editAuthor" class="form-control" required>
+      </div>
 
 
 
-  <button class="save" type="submit">Save</button>
-  <button type="button" (click)="close()" class="cancel">Cancel</button>
-</form>
+      <div class="edit-dialog-buttons">
+        <button type="submit" class="edit-save">Save</button>
+        <button type="button" class="edit-cancel" (click)="close()">Cancel</button>
+      </div>
+    </form>
+</div>

@@ -41,7 +41,8 @@ export class BlogService {
   }
 
   updateBlog(id: number, blog: Blog): Observable<Blog> {
-    return this.http.put<Blog>(`${this.apiUrl}/${id}`, blog,{ withCredentials: true });
+    const headers = this.getAuthHeaders();
+    return this.http.put<Blog>(`${this.apiUrl}/${id}`, blog, { headers });
   }
 
   deleteBlog(id: string): Observable<void> {

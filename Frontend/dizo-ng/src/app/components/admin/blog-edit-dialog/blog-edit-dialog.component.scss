@@ -1,0 +1,62 @@
+.edit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    
+    padding: 10px;
+    border: 2px inset;
+    background-color: #fff;
+    box-shadow: 0 6px 24px rgba(31, 70, 122, 0.15);
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin: 0 auto;
+    transition: box-shadow 0.2s;
+    max-height: 90vh;      
+    overflow-y: auto;     
+  }
+  
+  .edit-card:hover {
+    box-shadow: 0 8px 32px rgba(31, 70, 122, 0.22);
+  }
+
+
+
+  
+.edit-save{
+    margin-right:10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1F467A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #042c57;
+    }
+  }
+  .edit-cancel{
+    margin-right:10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #c21f2f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #970b19;
+    }
+  
+  
+  }

@@ -3,7 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-blog-edit-dialog',
-  templateUrl: './blog-edit-dialog.component.html'
+  templateUrl: './blog-edit-dialog.component.html',
+  styleUrls: ['./blog-edit-dialog.component.scss']
 })
 export class BlogEditDialogComponent {
   editedBlog: any;
