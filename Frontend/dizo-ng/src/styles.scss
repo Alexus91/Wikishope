@@ -3041,7 +3041,7 @@ Pagination Area Style
 ==================================*/
 .pagination-area {
     text-align: center;
-    margin-top: 20px;
+    margin-top: auto;
     margin-right: auto;
     margin-left: auto;
     display: table;
@@ -3051,6 +3051,7 @@ Pagination Area Style
 
     .pagination-item {
         margin-bottom: 30px;
+        padding: auto;
     }
     .page-link {
         color: $main-color;
@@ -3059,61 +3060,53 @@ Pagination Area Style
         width: 40px;
         height: 40px;
         border: 1px solid #0f2c52;
-        line-height: 28px;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+        line-height: 40px;
         font-weight: 700;
         border-radius: 100%;
         cursor: pointer;
-
-
-
+        display: flex;                // Add flex
+        align-items: center;          // Center vertically
+        justify-content: center;      // Center horizontally
+        text-align: center;           // Fallback for text
+        padding: 0;                   // Remove extra padding
+    
         i {
-            margin-right: -4px;
-            font-size: 21px;
-
-            &::before {
-                margin-left: -4px;
-            }
+          margin-right: -4px;
+          font-size: 21px;
+          &::before {
+            margin-left: -4px;
+          }
         }
         &.current, &:hover, &:focus {
-            color: $color-white;
-            background-color: $main-color;
-            border: 1px solid $main-color;
-            border-radius: 100%;
+          color: $color-white;
+          background-color: $main-color;
+          border: 1px solid $main-color;
+          border-radius: 100%;
         }
-    }
-    .page-item {
-        padding : 6px;
-        &:first-child .page-link {
-            border-radius: 100%;
-            text-align: center;
-
-            padding:6px;
-            
-        }
+      }
+    
+      .page-item {
+        margin: 0 5px;
+        // Remove padding: auto; and margin: auto; from here and children
+        &:first-child .page-link,
         &:last-child .page-link {
-            border-radius: 100%;
-            text-align: center;
-
-            padding:6px;
-
+          border-radius: 100%;
+          text-align: center;
         }
         &.current .page-link {
-            z-index: 1;
-            color: $color-white;
-            background-color: $main-color;
-            border-color: $main-color;
-            padding:6px;
+          z-index: 1;
+          color: $color-white;
+          background-color: $main-color;
+          border-color: $main-color;
         }
-        
+      }
     }
     .pagination .page-link.active {
         background-color: #1F467A;
         color: rgb(255, 255, 255);
         border-color: #007bff;
     }
-}
+
 
 /*=================================
 Cart Page Style

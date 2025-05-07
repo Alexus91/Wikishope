@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
     console.log("Fetching page: " + (this.page - 1) + ", size: 12");
     this.blogService.getBlogs(this.page - 1, 12).subscribe((data: any) => {
       console.log("Total pages: " + data.totalPages);
-      this.blogs = data.content;
+      this.blogs = data.content.reverse(); // Reverse the array to show newest first
       this.totalPages = data.totalPages;
       this.pagesArray = Array(this.totalPages).fill(0).map((x, i) => i + 1);
     });
