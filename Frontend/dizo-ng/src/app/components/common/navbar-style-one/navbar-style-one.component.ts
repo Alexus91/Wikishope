@@ -11,5 +11,14 @@ export class NavbarStyleOneComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  isLoggedIn(): boolean {
+    return document.cookie.includes('authToken=');
+  }
+  
+  logout(): void {
+    document.cookie = 'authToken=; path=/; max-age=0';
+    window.location.href = '/sign-in'; // or use this.router.navigate(['/sign-in']);
+  }
 
 }
+

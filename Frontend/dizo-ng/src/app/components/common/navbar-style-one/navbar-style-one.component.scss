@@ -1,0 +1,29 @@
+.logout {
+    display: inline-block;
+    color: #ffffff;
+    position: relative;
+    margin: {
+        left: 20px;
+        right: 20px;
+    };
+    
+        color: #ffffff;
+        border-radius: 50px;
+        font-size: 16px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: #1F467A;
+        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: 0.7s;
+
+        &:hover {
+            color: #1F467A;
+            -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        
+    }
+}

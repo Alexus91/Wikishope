@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
 
         console.log('Login successful!', response);
         alert('Login successful!');
-        this.router.navigate(['/admin/dashboard']); // Redirect to dashboard or home page after successful login
+        this.router.navigate(['/home']); // Redirect to dashboard or home page after successful login
       },
       error: (err) => {
         console.error('Login failed:', err);

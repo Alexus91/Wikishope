@@ -6,7 +6,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" routerLink="/home-two"><img src="assets/img/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" alt="Logo"></a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto ">
@@ -19,13 +19,11 @@
 
 
                         <li class="nav-item mx-2">
-                            <a href="javascript:void(0)" class="nav-link">products </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a routerLink="/product" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">products</a></li>
+                            <a  class="nav-link" routerLink="/product" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">products  </a>
 
-                                <li class="nav-item"><a routerLink="/product-details" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">products details</a></li>
-                            </ul>
                         </li>
+
+
 
                         <li class="nav-item mx-2">
                             <a  routerLink="/blog" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Blog </a>
@@ -34,19 +32,44 @@
                         </li>
 
                     </ul>
-
-                    <div class="cart-area mx-1">
-                        <a routerLink="/sign-in">
-                            <span>Login</span>
-                        </a>
+                    <ul class="navbar-nav m-auto ">
+                        <!-- ...other nav-items... -->
+                    
+                        <li class="nav-item mx-2" *ngIf="isLoggedIn()">
+                            <a href="javascript:void(0)" class="nav-link" data-bs-toggle="dropdown">
+                                <i class="bi bi-speedometer2"></i> Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/admin/blog-management" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Blog Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/product" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Products</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <!-- Login/Sign Up for guests -->
+                    <div class="cart-area mx-1" *ngIf="!isLoggedIn()">
+                      <a routerLink="/sign-in">
+                        <span>Login</span>
+                      </a>
                     </div>
-                    <div class="test mx-3">
-                        <a routerLink="/sign-up">
-                            <span>Create A New Account?
-                            </span>
-                        </a>
+                    <div class="test mx-3" *ngIf="!isLoggedIn()">
+                      <a routerLink="/sign-up">
+                        <span>Create A New Account?</span>
+                      </a>
+                    </div>
+                    
+                    <!-- Logout for logged-in users -->
+                    <div class="cart-area mx-1" *ngIf="isLoggedIn()">
+                      <button (click)="logout()" class="logout">Logout</button>
                     </div>
 
+                   
                     
                 </div>
             </nav>

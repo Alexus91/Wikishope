@@ -15,7 +15,8 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { BlogManagementComponent } from './components/admin/blog-management/blog-management.component';
 
 const routes: Routes = [
-    {path: 'home-two', component: HomePageTwoComponent},
+    { path: '', component: HomePageTwoComponent },
+    { path: 'home', component: HomePageTwoComponent },
     {path: 'about', component: AboutComponent},
     {path: 'error', component: ErrorComponent},
     {path: 'sign-in', component: SignInComponent},
