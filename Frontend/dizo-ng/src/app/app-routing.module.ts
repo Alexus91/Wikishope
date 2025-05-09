@@ -13,8 +13,13 @@ import { BlogDetailsComponent } from './components/pages/blog-details/blog-detai
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { BlogManagementComponent } from './components/admin/blog-management/blog-management.component';
+import { ProductManagementComponent } from './components/admin/product-management/product-management.component';
+import { CategoryManagementComponent } from './components/admin/category-management/category-management.component';
 
 const routes: Routes = [
+
+    {path: 'admin/product-management', component: ProductManagementComponent},
+    {path: 'admin/category-management', component: CategoryManagementComponent},
     { path: '', component: HomePageTwoComponent },
     { path: 'home', component: HomePageTwoComponent },
     {path: 'about', component: AboutComponent},

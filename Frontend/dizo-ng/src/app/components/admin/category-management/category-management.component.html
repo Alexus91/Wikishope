@@ -1,0 +1,16 @@
+<form (ngSubmit)="addCategory()">
+    <input type="text" [(ngModel)]="newCategoryName" name="categoryName" required>
+    <button type="submit">Add Category</button>
+  </form>
+  <ul>
+    <li *ngFor="let cat of categories">
+      <span *ngIf="editingCategory?.id !== cat.id">{{ cat.name }}</span>
+      <input *ngIf="editingCategory?.id === cat.id"
+             [(ngModel)]="editingCategory.name"
+             name="editCategoryName{{cat.id}}" required>
+      <button *ngIf="editingCategory?.id !== cat.id" (click)="startEdit(cat)">Edit</button>
+      <button *ngIf="editingCategory?.id === cat.id" (click)="updateCategory()">Save</button>
+      <button *ngIf="editingCategory?.id === cat.id" (click)="cancelEdit()">Cancel</button>
+      <button (click)="deleteCategory(cat.id)">Delete</button>
+    </li>
+  </ul>

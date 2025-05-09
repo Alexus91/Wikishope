@@ -45,6 +45,15 @@ public class SecurityConfiguration {
             .requestMatchers(HttpMethod.POST, "/api/blogs/**").authenticated()
             .requestMatchers(HttpMethod.PUT, "/api/blogs/**").authenticated()
             .requestMatchers(HttpMethod.DELETE, "/api/blogs/**").authenticated()
+            .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/products/**").authenticated()
+            .requestMatchers(HttpMethod.PUT, "/api/products/**").authenticated()
+            .requestMatchers(HttpMethod.DELETE, "/api/products/**").authenticated()
+            .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/categories/**").authenticated()
+            .requestMatchers(HttpMethod.PUT, "/api/categories/**").authenticated()
+            .requestMatchers(HttpMethod.DELETE, "/api/categories/**").authenticated()
+
             .anyRequest().authenticated())
         .sessionManagement(management -> management
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

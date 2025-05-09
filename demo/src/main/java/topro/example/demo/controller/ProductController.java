@@ -12,50 +12,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import topro.example.demo.model.Product;
-import topro.example.demo.repository.ProductRepository;
+import topro.example.demo.services.ProductService;
 
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
 
-    
-    private final ProductRepository productRepository;
-    
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
-    // Public: Get all products
     @GetMapping
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productService.getAllProducts();
     }
 
-    // Public: Get a specific product
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return productService.getProductById(id);
     }
 
-    // Admin Only: Create a new product
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
-        return productRepository.save(product);
+        return productService.createProduct(product);
     }
 
-    // Admin Only: Update a product
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
-        Product existingProduct = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
-        existingProduct.setName(updatedProduct.getName());
-        existingProduct.setDescription(updatedProduct.getDescription());
-        existingProduct.setPrice(updatedProduct.getPrice());
-        return productRepository.save(existingProduct);
+        return productService.updateProduct(id, updatedProduct);
     }
 
-    // Admin Only: Delete a product
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
-        productRepository.deleteById(id);
+        productService.deleteProduct(id);
     }
 }

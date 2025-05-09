@@ -3,6 +3,8 @@ package topro.example.demo.model;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product {
     @Id
@@ -18,6 +20,7 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Blog> blogs;
 
     // Getters and Setters

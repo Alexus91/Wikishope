@@ -4,6 +4,8 @@ package topro.example.demo.model;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
     @Id
@@ -13,9 +15,11 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Blog> blogs;
 
     // Getters and Setters

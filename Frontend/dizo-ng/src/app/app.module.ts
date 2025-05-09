@@ -34,6 +34,8 @@ import { QuillModule } from 'ngx-quill';
 import { ConfirmDialogComponent } from './components/common/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BlogEditDialogComponent } from './components/admin/blog-edit-dialog/blog-edit-dialog.component';
+import { ProductManagementComponent } from './components/admin/product-management/product-management.component';
+import { CategoryManagementComponent } from './components/admin/category-management/category-management.component';
 
 
 
@@ -66,7 +68,9 @@ import { BlogEditDialogComponent } from './components/admin/blog-edit-dialog/blo
     SignUpComponent,
     DashboardComponent,
     SidebarComponent,
-    BlogManagementComponent
+    BlogManagementComponent,
+    ProductManagementComponent,
+    CategoryManagementComponent
 
   ],
   imports: [
