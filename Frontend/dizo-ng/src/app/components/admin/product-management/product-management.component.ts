@@ -38,7 +38,7 @@ export class ProductManagementComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const selectedCategory = this.categories.find(cat => cat.id === this.selectedCategoryId);
+    const selectedCategory = this.categories.find(cat => cat.id.toString() === this.selectedCategoryId);
     const productToSend: Product = {
       ...this.newProduct,
       category: selectedCategory ? { id: selectedCategory.id, name: selectedCategory.name } : null

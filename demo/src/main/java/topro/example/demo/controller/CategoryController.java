@@ -4,7 +4,6 @@ package topro.example.demo.controller;
 import java.util.List;
 import topro.example.demo.model.Category;
 import topro.example.demo.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
