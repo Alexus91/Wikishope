@@ -1,0 +1,37 @@
+
+
+.delete{
+    margin-right:10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #c21f2f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #970b19;
+    }
+}
+.edit{
+    margin-right:10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1F467A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #042c57;
+    }
+  
+  }

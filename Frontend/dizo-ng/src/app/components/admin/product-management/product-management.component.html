@@ -26,18 +26,18 @@
     <button *ngIf="editingProduct" class="btn btn-secondary" type="button" (click)="cancelEdit()">Cancel</button>
   </form>
 
-  <h4 class="mt-6">Existing Products</h4>
+  <h4 class="mt-lg-3">Existing Products</h4>
   <div class="row">
     <div class="col-lg-3 col-md-pull-7" *ngFor="let product of products">
-      <div class="product-card">
+      <div class="blog-card">
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
         <p><b>Price:</b> {{ product.price | currency }}</p>
         <p><b>Category:</b> {{ product.category?.name }}</p>
-        <button class="edit" (click)="startEdit(product)">
+        <button class="edit" color="warn" (click)="startEdit(product)">
           <i class="bi bi-pencil"></i> Edit
         </button>
-        <button class="delete" (click)="deleteProduct(product.id)">
+        <button mat-raised-button class="delete" color="warn"(click)="deleteProduct(product.id)">
           <i class="bi bi-trash"></i> Delete
         </button>
       </div>
