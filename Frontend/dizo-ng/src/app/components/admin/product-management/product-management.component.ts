@@ -20,6 +20,7 @@ export class ProductManagementComponent implements OnInit {
     private productService: ProductService,
     private categoryService: CategoryService
   ) {}
+   
 
   ngOnInit(): void {
     this.loadProducts();

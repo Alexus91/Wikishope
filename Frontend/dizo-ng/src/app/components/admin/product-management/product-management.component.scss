@@ -71,10 +71,16 @@
     }
   
   }
-  .dropbox{
-
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .container {
+    flex: 1 0 auto;
+  }
   
     
 
  
-  }
+  

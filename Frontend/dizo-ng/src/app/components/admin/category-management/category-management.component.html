@@ -1,5 +1,5 @@
 <form (ngSubmit)="addCategory()">
-    <input type="text" [(ngModel)]="newCategoryName" name="categoryName" required>
+    <input type="text" [(ngModel)]="newCategoryName" name="categoryName" title="Category Name" placeholder="Enter category name" required>
     <button type="submit">Add Category</button>
   </form>
   <ul>
@@ -7,7 +7,10 @@
       <span *ngIf="editingCategory?.id !== cat.id">{{ cat.name }}</span>
       <input *ngIf="editingCategory?.id === cat.id"
              [(ngModel)]="editingCategory.name"
-             name="editCategoryName{{cat.id}}" required>
+             name="editCategoryName{{cat.id}}"
+             title="Edit category name"
+             placeholder="Edit category name"
+             required>
       <button *ngIf="editingCategory?.id !== cat.id" (click)="startEdit(cat)">Edit</button>
       <button *ngIf="editingCategory?.id === cat.id" (click)="updateCategory()">Save</button>
       <button *ngIf="editingCategory?.id === cat.id" (click)="cancelEdit()">Cancel</button>

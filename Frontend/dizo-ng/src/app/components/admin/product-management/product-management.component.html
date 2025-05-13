@@ -1,56 +1,67 @@
 <app-navbar-style-one></app-navbar-style-one>
 
-<div class="container">
-  <h4>{{ editingProduct ? 'Edit Product' : 'Create New Product' }}</h4>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Product Name</label>
-      <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control" required></textarea>
-    </div>
-    <div class="form-group">
-      <label for="price">Price</label>
-      <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
-    </div>
-    <div class = "form-group" >
-    <mat-form-field appearance="fill"  class="form-group">
-      <mat-label>Category</mat-label>
-      <mat-select [(ngModel)]="selectedCategoryId" name="category" required>
-        <mat-option value="" disabled>Select a category</mat-option>
-        <mat-option *ngFor="let cat of categories" [value]="cat.id.toString()">
-          {{ cat.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    </div>
-    <div>
-    <button class="btn btn-primary" class = "create" type="submit">{{ editingProduct ? 'Update' : 'Create' }}</button>
-    <button *ngIf="editingProduct" class="btn btn-secondary" class ="delete" type="button" (click)="cancelEdit()">Cancel</button>
-    </div>
-  </form>
-  
-  
-  <h4 class="mt-lg-3">Existing Products</h4>
+<div class="page-wrapper">
+  <div class="container">
+    <h4>{{ editingProduct ? 'Edit Product' : 'Create New Product' }}</h4>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input type="text" id="name" [(ngModel)]="newProduct.name" name="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="newProduct.description" name="description" class="form-control" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" id="price" [(ngModel)]="newProduct.price" name="price" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="form-group">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="selectedCategoryId" name="category" required>
+            <mat-option value="" disabled>Select a category</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat.id.toString()">
+              {{ cat.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <button class="btn btn-primary create" type="submit">{{ editingProduct ? 'Update' : 'Create' }}</button>
+        <button *ngIf="editingProduct" class="btn btn-secondary delete" type="button" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </form>
 
-  
-  <div class="row">
-    <div class="col-lg-3 col-md-pull-7" *ngFor="let product of products">
-      <div class="blog-card">
-        
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.description }}</p>
-        <p><b>Price:</b> {{ product.price | currency }}</p>
-        <p><b>Category:</b> <span class="text-primary">{{ product.category?.name }}</span></p>        <button class="edit" color="warn" (click)="startEdit(product)">
-          <i class="bi bi-pencil"></i> Edit
-        </button>
-        <button mat-raised-button class="delete" color="warn"(click)="deleteProduct(product.id)">
-          <i class="bi bi-trash"></i> Delete
-        </button>
+    <h4 class="mt-lg-3">Existing Products</h4>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-pull-7" *ngFor="let product of products">
+        <div class="blog-card">
+          <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Product Image" class="img-fluid" />
+          <div class="blog-content">
+            <h3 class="blog-title"><i class="bi bi-box-seam text-primary"></i> {{ product.name }}</h3>
+            <ul class="blog-admin">
+              <li>
+                <i class="bi bi-cash-coin text-success"></i> {{ product.price | currency }}
+              </li>
+              <li>
+                <i class="bi bi-tags text-info"></i>
+                <span class="text-primary">{{ product.category?.name }}</span>
+              </li>
+            </ul>
+            <p>{{ product.description | slice:0:100 }}...</p>
+            <button class="edit" color="warn" (click)="startEdit(product)">
+              <i class="bi bi-pencil"></i> Edit
+            </button>
+            <button mat-raised-button class="delete" color="warn" (click)="deleteProduct(product.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <app-footer-style-two></app-footer-style-two>
