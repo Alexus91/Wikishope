@@ -90,7 +90,6 @@ public class BlogController {
         String imageUrl = "http://localhost:8080/uploads/" + fileName;
         return ResponseEntity.ok("{\"imageUrl\": \"" + imageUrl + "\"}");
     } catch (IOException ex) {
-        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("{\"error\": \"Could not save file: " + ex.getMessage() + "\"}");
     }

@@ -27,7 +27,6 @@ public class ApplicationConfiguration {
         return username -> adminRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
-
     @Bean
     // we create a passwordEncoder bean that returns a new BCryptPasswordEncoder
     BCryptPasswordEncoder passwordEncoder() {
@@ -35,7 +34,8 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {// we create an authenticationManager bean that returns the authentication manager from the AuthenticationConfiguration
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        // we create an authenticationManager bean that returns the authentication manager from the AuthenticationConfiguration
         return config.getAuthenticationManager();
     }
     @Bean
@@ -46,5 +46,4 @@ public class ApplicationConfiguration {
         return authProvider;
     }
 
-   
 }

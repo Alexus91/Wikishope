@@ -11,8 +11,9 @@ import { BlogService } from 'src/app/services/blogService';
 export class BlogComponent implements OnInit {
   blogs: Blog[] = [];
   page: number = 1;
-  totalPages: number;
-  pagesArray: number[] = [];    
+  totalPages: number | undefined;
+  pagesArray: number[] = [];
+  
 
   
 
@@ -34,12 +35,14 @@ export class BlogComponent implements OnInit {
   pageChange(newPage: number): void {
     this.page = newPage;
     this.loadBlogs();
-    this.scrollToTop();
+    //this.scrollToTop();
+    // it need to fix this to scroll in the mid not the top of the page .
   }
 
-  scrollToTop(): void {
-    window.scrollTo(0, 0);
-  }
+  //scrollToTop(): void {
+    
+    //window.scrollTo(12, 0);
+  //}
   
   getSanitizedContent(content: string): SafeHtml {
       return this.sanitizer.bypassSecurityTrustHtml(content);

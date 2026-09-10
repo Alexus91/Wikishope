@@ -12,7 +12,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./blog-details.component.scss']
 })
 export class BlogDetailsComponent implements OnInit {
-  blog: Blog;
+  blog: Blog | undefined;
 
   constructor(
     private route: ActivatedRoute,

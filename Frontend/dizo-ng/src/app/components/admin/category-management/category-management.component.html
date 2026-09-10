@@ -1,19 +1,41 @@
+
+<app-navbar-style-one></app-navbar-style-one>
+
+<div class="container">
+
+
+<div class="page-wrapper">
+
+  <h4>{{ editingCategory ? 'Edit Product' : 'Create New Category' }}</h4>
+
 <form (ngSubmit)="addCategory()">
     <input type="text" [(ngModel)]="newCategoryName" name="categoryName" title="Category Name" placeholder="Enter category name" required>
     <button type="submit">Add Category</button>
-  </form>
-  <ul>
+</form>
+  <div class="form-group">
+
     <li *ngFor="let cat of categories">
       <span *ngIf="editingCategory?.id !== cat.id">{{ cat.name }}</span>
       <input *ngIf="editingCategory?.id === cat.id"
              [(ngModel)]="editingCategory.name"
              name="editCategoryName{{cat.id}}"
+             class="form-control"
              title="Edit category name"
              placeholder="Edit category name"
              required>
-      <button *ngIf="editingCategory?.id !== cat.id" (click)="startEdit(cat)">Edit</button>
-      <button *ngIf="editingCategory?.id === cat.id" (click)="updateCategory()">Save</button>
-      <button *ngIf="editingCategory?.id === cat.id" (click)="cancelEdit()">Cancel</button>
-      <button (click)="deleteCategory(cat.id)">Delete</button>
+       
+      
+      <button class="edit" color="warn" (click)="startEdit(cat)">
+              <i class="bi bi-pencil"></i> Edit
+            </button>      
+            <button  class="save"*ngIf="editingCategory?.id === cat.id" (click)="updateCategory()">Save</button>
+      <button  class="cancel" *ngIf="editingCategory?.id === cat.id" (click)="cancelEdit()">Cancel</button>
+      <button  class="delete" color="warn" (click)="deleteCategory(cat.id)">
+              <i class="bi bi-trash"></i> Delete
+        </button>
     </li>
-  </ul>
+  </div>
+</div>
+</div>
+  <app-footer-style-two></app-footer-style-two>
+ 

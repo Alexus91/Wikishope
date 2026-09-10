@@ -14,7 +14,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
 import java.util.List;
 
 @Configuration
@@ -41,18 +40,11 @@ public class SecurityConfiguration {
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/uploads/**").permitAll()
             .requestMatchers("/auth/**").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/blogs/**").permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/blogs/**").authenticated()
-            .requestMatchers(HttpMethod.PUT, "/api/blogs/**").authenticated()
-            .requestMatchers(HttpMethod.DELETE, "/api/blogs/**").authenticated()
-            .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/products/**").authenticated()
-            .requestMatchers(HttpMethod.PUT, "/api/products/**").authenticated()
-            .requestMatchers(HttpMethod.DELETE, "/api/products/**").authenticated()
-            .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/categories/**").authenticated()
-            .requestMatchers(HttpMethod.PUT, "/api/categories/**").authenticated()
-            .requestMatchers(HttpMethod.DELETE, "/api/categories/**").authenticated()
+            .requestMatchers(HttpMethod.GET, "/api/categories/**","/api/products/**","/api/blogs/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/categories/**","/api/categories/**","/api/blogs/**").authenticated()
+            .requestMatchers(HttpMethod.PUT, "/api/categories/**","/api/blogs/**","/api/blogs/**").authenticated()
+            .requestMatchers(HttpMethod.DELETE, "/api/categories/**","/api/products/**","/api/blogs/**").authenticated()
+            
 
             .anyRequest().authenticated())
         .sessionManagement(management -> management

@@ -5,7 +5,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BlogEditDialogComponent } from '../blog-edit-dialog/blog-edit-dialog.component';
-
 @Component({
   selector: 'app-blog-management',
   templateUrl: './blog-management.component.html',
@@ -20,13 +19,12 @@ export class BlogManagementComponent implements OnInit {
     date: new Date(),
     imageUrlblog: ''
   };
-
+  
   blogs: Blog[] = [];
   selectedFile: File | null = null;
   page: number = 1;
   totalPages: number = 0;
   pagesArray: number[] = [];
-
   // Improved Quill Editor Configuration (Supports Headings, Lists, Bold, Images)
   editorModules = {
     toolbar: [
@@ -160,5 +158,3 @@ startEdit(blog: Blog): void {
     window.scrollTo(0, 0);
   }
 }
-
-
