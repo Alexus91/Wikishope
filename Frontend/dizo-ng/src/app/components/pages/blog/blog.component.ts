@@ -35,14 +35,14 @@ export class BlogComponent implements OnInit {
   pageChange(newPage: number): void {
     this.page = newPage;
     this.loadBlogs();
-    //this.scrollToTop();
-    // it need to fix this to scroll in the mid not the top of the page .
+    this.scrollToTop();
+    //it need to fix this to scroll in the mid not the top of the page .
   }
 
-  //scrollToTop(): void {
+   scrollToTop(): void {
     
-    //window.scrollTo(12, 0);
-  //}
+    window.scrollTo(12, 0);
+  }
   
   getSanitizedContent(content: string): SafeHtml {
       return this.sanitizer.bypassSecurityTrustHtml(content);
